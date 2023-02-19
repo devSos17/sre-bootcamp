@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  
+  node:
+    image: wize-santiago-orozco:latest
+    build:
+      context: ./node/
+    container_name: node_api
+    environment:
+      - "DB_HOST=${DB_HOST}"
+      - "DB_PORT=${DB_PORT:-3306}"
+      - "DB_USERNAME=${DB_USERNAME}"
+      - "DB_PASSWORD=${DB_PASSWORD}"
+      - "SECRET=${SECRET}"
+    ports:
+      - "8000:8000"
+
